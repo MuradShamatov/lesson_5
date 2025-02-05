@@ -1,38 +1,29 @@
-﻿void Show_matrix (int [,] matrix){
-    for(int i = 0; i < matrix.GetLength(0); i++)
-    {
-        for(int j = 0; j < matrix.GetLength(1); j++)
-        {
-            Console.Write($"{matrix[i,j]} ");
-        }
-        Console.Write("\n");
-    }
-}
+﻿// Задача 3: Проверка строки на палиндром
 
-int [,] Revers_matrix (int [,] matrix)
+bool IsPalindrom (string str)
 {
-    int row = matrix.GetLength(0);
-    int colum = matrix.GetLength(1);
-    int [,] new1_matrix = new int [colum, row];
-
-    for(int i = 0; i< matrix.GetLength(0); i++)
+    str = str.ToLower().Replace(" ", "");  // Приводим к нижнему регистру и убираем пробелы
+    int left = 0;
+    int right = str.Length - 1;
+    while(left<right)
     {
-        for (int j = 0; j< matrix.GetLength(1); j++)
+     if(str[left] != str[right])
         {
-            new1_matrix[j,i] = matrix[i, j];
+            return false;
         }
+        left++;
+        right--;
     }
-
-    return new1_matrix;
-
+    return true;
 }
 
-int [,] matrix = {
-    {4, 335, 632, 44},
-    {5, 46, 2, 77},
-    {849, 55, 34, 1}
-};
 
-int [,] new_matrix = Revers_matrix(matrix);
+Console.Write("Vvedite: ");
+string palindrom = Console.ReadLine();
 
-Show_matrix (new_matrix);
+if(IsPalindrom(palindrom))
+{
+    Console.WriteLine("Da palindrom");
+}
+
+else Console.WriteLine("No");

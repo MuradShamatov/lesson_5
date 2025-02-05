@@ -1,21 +1,11 @@
-﻿
-void Find_sum_column (int [,] matr){
-    for (int j = 0; j< matr.GetLength(1); j++)
-    {
-        int sum = 0;
-        for(int i = 0; i < matr.GetLength(0); i++)
-        {
-            sum += matr[i,j]; 
-        }
-        Console.WriteLine($"Nashli summu {j}: {sum}");
-    } 
+﻿// Задача 2: Замена заглавных букв на строчные в строке
+
+string GetSmall (string str1){
+
+    return str1.ToLower();  // Просто приводим всю строку к нижнему регистру
 }
 
-int [,] matrix = {
-    {4, 335, 632, 44},
-    {5, 46, 2, 77},
-    {849, 55, 34, 1}
-};
+string str2 = Console.ReadLine();
+string strDone = GetSmall(str2);
+Console.WriteLine(strDone); 
 
-
-Find_sum_column(matrix);

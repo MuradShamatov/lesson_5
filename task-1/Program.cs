@@ -1,28 +1,24 @@
-﻿
-void Show_big (int [,] matr){
-    for (int i = 0; i< matr.GetLength(0); i++)
+﻿//Задача 1: Создание строки из двумерного массива символов
+
+string CreateString(char [,] array)
+{
+    string result = "";
+    for(int i = 0; i < array.GetLength(0); i++)
     {
-        int max = matr[i,0];
-        for(int j = 0; j < matr.GetLength(1); j++)
+        for(int j = 0; j < array.GetLength(1); j++)
         {
-            if(matr[i,j] > max)
-            {
-                max = matr[i,j];
-            }
-            
-
+            result += array[i,j];
         }
-        Console.WriteLine($"Nashli max znachv  stroke {i}: {max}");
     } 
-
-
+    return result;
 }
 
-int [,] matrix = {
-    {4, 335, 632, 44},
-    {5, 46, 2, 77},
-    {849, 55, 34, 1}
+char [,] array = new char [,]
+{
+    {'a', 's', 'f'},
+    {'v', 'c', 'z'}
 };
 
+string result = CreateString(array);
 
-Show_big(matrix);
+Console.Write(result);
